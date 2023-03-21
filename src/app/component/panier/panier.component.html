@@ -1,0 +1,22 @@
+<h2>Panier</h2>
+
+<style>
+    table.center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+<table *ngIf="panier.length > 0; else hackersEmpty" class="table is-striped center">
+    <thead>
+        <tr>
+            <th>Nombre d'articles</th>
+            <th>Nom</th>
+            <th>Région</th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+<ng-template #BoxEmpty> 
+    <p>Pas de box ! </p>
+</ng-template>
