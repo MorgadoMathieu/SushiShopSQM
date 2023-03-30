@@ -1,51 +1,54 @@
 <h1>Menus</h1>
 
+<script>
+    var myModal = document.getElementById('myModal')
+    var myInput = document.getElementById('myInput')
+    
+    myModal.addEventListener('shown.bs.modal', function () {
+      myInput.focus()
+    })
+</script>
 
 <table class="center">
-    <!-- <table *ngIf="boxs.length > 0; else boxEmpty" class="table is-striped center"> -->
     <thead>
         <tr>
-            <!-- <th>id</th> -->
-            <th>Nom</th>
-            <!-- <th>pieces</th> -->
-            <th>Prix</th>
-            <th>Image</th>
-            <th><th>
-            <!-- <th>aliments</th>
-            <th>saveurs</th> -->
+            <th style="text-align: center">Nom</th>
+            <th style="text-align: center">Prix</th>
+            <th style="text-align: center"></th>
+            <th style="text-align: center"></th>
+            <th style="text-align: center"></th>
         </tr>
     </thead>
-    
     <tbody>
         <tr *ngFor="let box of boxs"> 
-            <td>{{ box.nom }}</td>
-            <td>{{ box.prix }} €</td>
-            <td> <img src="{{apiImageUrl}}/{{box.image}}"></td>
-            <!-- <td> <img src="http://localhost:8080/api/image/sunrise" width="49" height="37"></td> -->
-
-            <td><button type="button" class="btn btn-success mb-2">Ajouter</button></td>
-            <td><button type="button" class="btn btn- mb-2">Details</button></td>
-
-            <!-- <td>{{ box.id }}</td> -->
-            <!-- <td>{{ box.pieces }}</td> -->
-            <!-- affiche la valeur des aliments -->
-            <!-- <td>
-                <ul>
-                    <li *ngFor="let aliment of box.aliments">{{ aliment.nom }} ({{ aliment.quantite }})</li>
-                </ul>
-            </td> -->
-
-            <!-- affiche la valeur des saveurs -->
-            <!-- <td>
-                <ul>
-                    <li *ngFor="let saveur of box.saveurs">{{ saveur }}</li>
-                </ul>
-            </td> -->
+            <td style="text-align: center">{{ box.nom }}</td>
+            <td style="text-align: center">{{ box.prix }} €</td>
+            <td style="text-align: center"> <img src="{{apiImageUrl}}{{box.image}}"></td>
+            <td style="text-align: center"><button type="button" class="btn btn-success mb-2">Ajouter</button></td>
+            <td style="text-align: center">
+                <a class="btn btn-secondary mb-2" href="#popup{{ box.id }}">Details</a>
+                <div id="popup{{ box.id }}" class="overlay">
+                    <div class="popup">
+                        <h2>Détails de la box : {{ box.id }}</h2>
+                        <a class="close" href="">&times;</a>
+                        <ul>Nom : {{ box.nom }} </ul>
+                        <ul>Pieces : {{ box.pieces }} </ul>
+                        <ul>Prix : {{ box.prix }} € </ul>
+                        <ul>Aliments :</ul>
+                        <ul>
+                            <li *ngFor="let aliment of box.aliments">{{ aliment.nom }} ({{ aliment.quantite }})</li>
+                        </ul>
+                        <ul>Saveurs : </ul>
+                        <ul>
+                            <li *ngFor="let saveur of box.saveurs">{{ saveur }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </td>
         </tr>
     </tbody>
-
 </table>
-    
+
 <tfoot>
     <div style="font-weight:bold;">Nombre de box : {{ boxs.length }}</div>
 </tfoot>

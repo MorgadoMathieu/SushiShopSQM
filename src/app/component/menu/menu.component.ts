@@ -30,14 +30,7 @@ export class MenuComponent implements OnInit {
       }, 
     })
   }
-
-  //ngOnInit() {
-  //  const url = `${this.apiUrl}`;
-  //  this.http.get<SushiAPI>(url).subscribe((data) => {
-  //    this.boxs = data.boxs;
-  //  });
-  //}
-
+  
 }
 
 
