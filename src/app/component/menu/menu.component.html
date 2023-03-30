@@ -1,0 +1,56 @@
+<h1>Menus</h1>
+
+
+<table class="center">
+    <!-- <table *ngIf="boxs.length > 0; else boxEmpty" class="table is-striped center"> -->
+    <thead>
+        <tr>
+            <!-- <th>id</th> -->
+            <th>Nom</th>
+            <!-- <th>pieces</th> -->
+            <th>Prix</th>
+            <th>Image</th>
+            <th><th>
+            <!-- <th>aliments</th>
+            <th>saveurs</th> -->
+        </tr>
+    </thead>
+    
+    <tbody>
+        <tr *ngFor="let box of boxs"> 
+            <td>{{ box.nom }}</td>
+            <td>{{ box.prix }} €</td>
+            <td> <img src="{{apiImageUrl}}/{{box.image}}"></td>
+            <!-- <td> <img src="http://localhost:8080/api/image/sunrise" width="49" height="37"></td> -->
+
+            <td><button type="button" class="btn btn-success mb-2">Ajouter</button></td>
+            <td><button type="button" class="btn btn- mb-2">Details</button></td>
+
+            <!-- <td>{{ box.id }}</td> -->
+            <!-- <td>{{ box.pieces }}</td> -->
+            <!-- affiche la valeur des aliments -->
+            <!-- <td>
+                <ul>
+                    <li *ngFor="let aliment of box.aliments">{{ aliment.nom }} ({{ aliment.quantite }})</li>
+                </ul>
+            </td> -->
+
+            <!-- affiche la valeur des saveurs -->
+            <!-- <td>
+                <ul>
+                    <li *ngFor="let saveur of box.saveurs">{{ saveur }}</li>
+                </ul>
+            </td> -->
+        </tr>
+    </tbody>
+
+</table>
+    
+<tfoot>
+    <div style="font-weight:bold;">Nombre de box : {{ boxs.length }}</div>
+</tfoot>
+
+
+<ng-container *ngIf="boxs.length === 0">
+    <p>Pas de box dans le menu !</p>
+</ng-container> 
