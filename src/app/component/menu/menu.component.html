@@ -23,7 +23,7 @@
         <tr *ngFor="let box of boxs"> 
             <td style="text-align: center">{{ box.nom }}</td>
             <td style="text-align: center">{{ box.prix }} €</td>
-            <td style="text-align: center"> <img src="{{apiImageUrl}}{{box.image}}"></td>
+            <td style="text-align: center"><img src="{{apiImageUrl}}{{box.image}}"></td>
             <td style="text-align: center"><button type="button" class="btn btn-success mb-2">Ajouter</button></td>
             <td style="text-align: center">
                 <a class="btn btn-secondary mb-2" href="#popup{{ box.id }}">Details</a>
