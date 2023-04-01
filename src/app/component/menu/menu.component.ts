@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { SushiAPI } from 'src/app/models/SushiAPI';
 import { ManagerMenuService } from 'src/app/service/manager-menu.service';
 import { StructureBox } from 'src/app/models/StructureBox';
-import { Observable } from 'rxjs';
-import { ApiService } from 'src/app/service/api-service.service';
 import { environment } from 'src/environments/environment';
 import { Box } from 'src/app/models/Box';
 import { HttpClient } from '@angular/common/http';
-
+import { ManagerPanierService } from 'src/app/service/manager-panier.service';
 
 @Component({
   selector: 'app-menu',
@@ -20,17 +17,20 @@ export class MenuComponent implements OnInit {
   apiBoxesUrl = environment.apiBoxesUrl;
   apiImageUrl = environment.apiImageUrl
 
-  constructor(private managerMenuService: ManagerMenuService, private http: HttpClient) {
+  constructor(private managerMenuService: ManagerMenuService, private http: HttpClient, private managerPanierService: ManagerPanierService) {
   }
 
-  ngOnInit(): void {
+  ngOnInit(){
     this.managerMenuService.getBoxes().subscribe({
       next:(boxs: StructureBox[]) => {
         this.boxs = boxs
       }, 
     })
   }
-  
+
+  ajouterBox(box: Box){
+    this.managerPanierService.ajouterBoxAuPanier(box);
+  } 
 }
 
 

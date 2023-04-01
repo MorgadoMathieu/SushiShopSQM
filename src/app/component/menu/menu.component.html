@@ -23,14 +23,14 @@
         <tr *ngFor="let box of boxs"> 
             <td style="text-align: center">{{ box.nom }}</td>
             <td style="text-align: center">{{ box.prix }} €</td>
-            <td style="text-align: center"><img src="{{apiImageUrl}}{{box.image}}"></td>
-            <td style="text-align: center"><button type="button" class="btn btn-success mb-2">Ajouter</button></td>
-            <td style="text-align: center">
+            <td><img src="{{apiImageUrl}}{{box.image}}"></td>
+            <td><button type="button" class="btn btn-success mb-2" (click)="ajouterBox(box)">Ajouter</button></td>
+            <td>
                 <a class="btn btn-secondary mb-2" href="#popup{{ box.id }}">Details</a>
                 <div id="popup{{ box.id }}" class="overlay">
                     <div class="popup">
                         <h2>Détails de la box : {{ box.id }}</h2>
-                        <a class="close" href="">&times;</a>
+                        <a class="close" href="#">&times;</a>
                         <ul>Nom : {{ box.nom }} </ul>
                         <ul>Pieces : {{ box.pieces }} </ul>
                         <ul>Prix : {{ box.prix }} € </ul>
