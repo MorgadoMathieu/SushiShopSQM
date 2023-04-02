@@ -10,10 +10,8 @@ import { HomeComponent } from './component/home/home.component';
 import { MenuComponent } from './component/menu/menu.component';
 import { PanierComponent } from './component/panier/panier.component';
 import { HttpClientModule } from '@angular/common/http';
-<<<<<<< HEAD
 import { FooterComponent } from './component/footer/footer.component';
-=======
->>>>>>> origin/master
+
 
 @NgModule({
   declarations: [
@@ -21,12 +19,8 @@ import { FooterComponent } from './component/footer/footer.component';
     HeaderComponent,
     HomeComponent,
     MenuComponent,
-<<<<<<< HEAD
     PanierComponent,
     FooterComponent
-=======
-    PanierComponent
->>>>>>> origin/master
   ],
   imports: [
     BrowserModule,
