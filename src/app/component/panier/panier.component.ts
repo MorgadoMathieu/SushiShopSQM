@@ -29,11 +29,7 @@ export class PanierComponent implements OnInit {
     const nbBoxs = this.panier.reduce((total, panierBox) => total + panierBox.quantite, 0);
 
     if (nbBoxs >= 10) {
-<<<<<<< HEAD
       alert('Vous avez atteint la limite de quantité pour le panier !');
-=======
-      alert('Vous avez atteint la limite de quantite pour le panier !');
->>>>>>> origin/master
       return;
     }
     else{
