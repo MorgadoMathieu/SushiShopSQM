@@ -46,8 +46,7 @@ export class PanierComponent implements OnInit {
     else if(box.quantite == 1){
       const nbBoxs = this.panier.reduce((total, panierBox) => total + panierBox.quantite, 0);
       if (nbBoxs == 1) {
-        alert('Vous ne pouvez pas supprimer cette box, le panier doit contenir au moins une box !');
-        return;
+        this.supprimerBox(box);
       }
       this.supprimerBox(box);
     } 
@@ -60,7 +59,7 @@ export class PanierComponent implements OnInit {
     }
   }
 
-    // Fonction pour obtenir la quantité totale d'articles dans le panier
+  // Fonction pour obtenir la quantité totale d'articles dans le panier
   getTotalQuantite(): number {
     return this.panier.reduce((total, panierBox) => total + panierBox.quantite, 0);
   }
